@@ -1,0 +1,43 @@
+LogName=Microsoft-Windows-Sysmon/Operational
+EventCode=1
+EventType=4
+ComputerName=WORKSTATION-01
+User=NOT_TRANSLATED
+Sid=S-1-5-18
+SidType=0
+SourceName=Microsoft-Windows-Sysmon
+Type=Information
+RecordNumber=0000001
+Keywords=None
+TaskCategory=Process Create (rule: ProcessCreate)
+OpCode=Info
+Message=Process Create:
+RuleName: -
+UtcTime: 2024-01-01 00:00:00.000
+ProcessGuid: {00000000-0000-0000-0000-000000000000}
+ProcessId: 5678
+Image: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+FileVersion: 10.0.19041.3996 (WinBuild.160101.0800)
+Description: Windows PowerShell
+Product: Microsoft® Windows® Operating System
+Company: Microsoft Corporation
+OriginalFileName: PowerShell.EXE
+CommandLine: "powershell.exe" & {Out-ATHPowerShellCommandLineParameter -CommandLineSwitchType Hyphen -EncodedCommandParamVariation E -UseEncodedArguments -EncodedArgumentsParamVariation EncodedArguments -Execute -ErrorAction Stop}
+CurrentDirectory: C:\Users\user\AppData\Local\Temp\
+User: WORKSTATION-01\user
+LogonGuid: {00000000-0000-0000-0000-000000000000}
+LogonId: 0x00000000
+TerminalSessionId: 1
+IntegrityLevel: High
+Hashes: MD5=2E5A8590CF6848968FC23DE3FA1E25F1,SHA256=9785001B0DCF755EDDB8AF294A373C0B87B2498660F724E76C4D53F9C217C7A3,IMPHASH=3D08F4848535206D772DE145804FF4B6
+ParentProcessGuid: {00000000-0000-0000-0000-000000000000}
+ParentProcessId: 1234
+ParentImage: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+ParentCommandLine: "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" 
+ParentUser: WORKSTATION-01\user
+Collapse
+
+    host = WORKSTATION-01
+    source = WinEventLog:Microsoft-Windows-Sysmon/Operational
+    sourcetype = xmlwineventlog_sysmon
+

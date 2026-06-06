@@ -1,0 +1,31 @@
+title: Suspicious PowerShell Execution
+id: ce9706ec-52f2-4ab9-89a1-e57cc97292a1
+status: experimental
+description: Detects suspicious PowerShell command line activity
+author: Philip Zangara
+date: 2026/05/25
+tags:
+    - attack.execution
+    - attack.t1059.001
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection:
+        CommandLine|contains:
+            - '-EncodedCommand'
+            - '-enc '
+            - '-ExecutionPolicy Bypass'
+            - 'Invoke-Expression'
+            - 'IEX'
+            - '-WindowStyle'
+            - '-nop'
+            - '-NoProfile'
+    filter:
+        Image|endswith:
+            - '\powershell.exe'
+            - '\pwsh.exe'
+    condition: selection and filter
+falsepositives:
+    - Legitimate administrative scripts
+level: medium

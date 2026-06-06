@@ -1,0 +1,8 @@
+# Simple Sigma Detection Rules
+# Rule: T1059.001 - Suspicious PowerShell Execution
+# Author: Philip Zangara
+# MITRE ATT&CK: T1059.001 - Command and Scripting Interpreter: PowerShell
+# Generated from Sigma rule using sigma-cli with splunk_windows + splunk_sysmon_acceleration pipeline
+# Usage: Paste into Splunk search bar or save as a saved search
+
+CommandLine IN ("*-EncodedCommand*", "*-enc *", "*-ExecutionPolicy Bypass*", "*Invoke-Expression*", "*IEX*", "*-WindowStyle*", "*-nop*", "*-NoProfile*") Image IN ("*\\powershell.exe", "*\\pwsh.exe")
