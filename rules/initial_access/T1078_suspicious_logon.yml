@@ -1,0 +1,23 @@
+title: Suspicious Logon
+id: cdf0c2a7-b032-4cca-a55d-15e33d484982
+status: experimental
+description: Detects suspicious logons
+author: Philip Zangara
+date: 2026/06/07
+tags:
+    - attack.initial_access
+    - attack.t1078
+logsource:
+    category: security
+    product: windows
+detection:
+    selection:
+        EventID: 4624
+        LogName: Security
+        LogonType:
+          - 10
+          - 3
+    condition: selection
+falsepositives:
+    - Legitimate logons
+level: medium

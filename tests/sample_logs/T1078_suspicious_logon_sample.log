@@ -1,0 +1,36 @@
+LogName=Security
+EventCode=4624
+EventType=0
+ComputerName=WORKSTATION-01
+SourceName=Microsoft Windows security auditing.
+Type=Information
+RecordNumber=00001
+Keywords=Audit Success
+TaskCategory=Logon
+OpCode=Info
+Message=An account was successfully logged on.
+Subject:
+    Security ID:        S-1-5-18
+    Account Name:       WORKSTATION-01$
+    Account Domain:     WORKGROUP
+    Logon ID:           0x3E7
+Logon Type:             10
+New Logon:
+    Security ID:        S-1-5-21-0000000000-0000000000-0000000000-1001
+    Account Name:       user
+    Account Domain:     WORKSTATION-01
+    Logon ID:           0x00000000
+    Logon GUID:         {00000000-0000-0000-0000-000000000000}
+Process Information:
+    Process ID:         0x1234
+    Process Name:       C:\Windows\System32\winlogon.exe
+Network Information:
+    Workstation Name:   ATTACKER-01
+    Source Network Address: 192.168.1.100
+    Source Port:        49152
+Detailed Authentication Information:
+    Logon Process:      User32
+    Authentication Package: Negotiate
+    Transited Services: -
+    Package Name (NTLM only): -
+    Key Length:         0

@@ -1,0 +1,8 @@
+# Simple Sigma Detection Rules
+# Rule: T1078 - Suspicious Logon
+# Author: Philip Zangara
+# MITRE ATT&CK: T1078 - Valid Accounts
+# Generated from Sigma rule using sigma-cli with splunk_windows pipeline
+# Usage: Paste into Splunk search bar or save as a saved search
+
+EventCode=4624 LogName="Security" LogonType IN (10, 3)
