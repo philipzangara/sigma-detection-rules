@@ -1,0 +1,11 @@
+# Simple Sigma Detection Rules
+# Rule: T1110 - Failed Logon Attempts (Brute Force)
+# Author: Philip Zangara
+# MITRE ATT&CK: T1110 - Brute Force
+# Generated from Sigma rule using sigma-cli with splunk_windows pipeline
+# Note: Threshold logic applied in SPL - Sigma pipe syntax deprecated in pySigma
+# Usage: Paste into Splunk search bar or save as a saved search
+
+EventCode=4625 LogName="Security"
+| stats count by src_ip, user 
+| where count > 5
