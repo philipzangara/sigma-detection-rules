@@ -1,0 +1,8 @@
+# Simple Sigma Detection Rules
+# Rule: T1562.001 - Suspicious Log Clearing
+# Author: Philip Zangara
+# MITRE ATT&CK: T1562.001 - Impair Defenses
+# Generated from Sigma rule using sigma-cli with splunk_windows pipeline
+# Usage: Paste into Splunk search bar or save as a saved search
+
+EventCode=1102 LogName="Security"

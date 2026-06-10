@@ -1,0 +1,9 @@
+# Simple Sigma Detection Rules
+# Rule: T1003.001 - LSASS Credential Dump
+# Author: Philip Zangara
+# MITRE ATT&CK: T1003.001 - OS Credential Dumping: LSASS Memory
+# Generated from Sigma rule using sigma-cli with splunk_windows + splunk_sysmon_acceleration pipeline
+# Note: filter_legitimate excludes lsass.exe spawned by wininit.exe (normal Windows boot behavior)
+# Usage: Paste into Splunk search bar or save as a saved search
+
+CommandLine="*lsass*" OR Image IN ("*\\mimikatz.exe", "*\\procdump.exe", "*\\procdump64.exe", "*\\wce.exe", "*\\pwdump.exe", "*\\lsadump.exe") NOT (Image="*\\lsass.exe" ParentImage="*\\wininit.exe")

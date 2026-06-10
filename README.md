@@ -9,6 +9,8 @@ Sigma detection rules for common adversary TTPs mapped to MITRE ATT&CK, with con
 | T1059.001 - Suspicious PowerShell Execution | Execution | Sysmon (EventCode 1) | Medium |
 | T1110 - Failed Logon Attempts (Brute Force) | Credential Access | Security (EventCode 4625) | Medium |
 | T1078 - Suspicious Logon | Initial Access | Security (EventCode 4624) | Medium |
+| T1003.001 - LSASS Credential Dump | Credential Access | Sysmon (EventCode 1) | Medium |
+| T1562.001 - Security Log Clearing | Defense Evasion | Security (EventCode 1102) | Medium |
 
 ## Repository Structure
 
@@ -28,12 +30,18 @@ sigma-detection-rules/
 
 ## Converting Rules
 
-Convert to Splunk SPL:
+Convert any rule to Splunk SPL using sigma-cli. Use `splunk_sysmon_acceleration` pipeline for Sysmon-based rules:
+
 ```
-sigma convert -t splunk -p splunk_windows -p splunk_sysmon_acceleration rules/execution/T1059_001_powershell_execution.yml
-sigma convert -t splunk -p splunk_windows rules/credential_access/T1110_brute_force_logon.
-sigma convert -t splunk -p splunk_windows rules/initial_access/T1078_suspicious_logon.yml
+# Sysmon rules (EventCode 1, 10, etc.)
+sigma convert -t splunk -p splunk_windows -p splunk_sysmon_acceleration rules/<tactic>/<rule>.yml
+
+# Security log rules (EventCode 4624, 4625, 1102, etc.)
+sigma convert -t splunk -p splunk_windows rules/<tactic>/<rule>.yml
 ```
+
+Pre-converted SPL queries are available in the `splunk/` folder.
+
 
 ## Sample Logs
 

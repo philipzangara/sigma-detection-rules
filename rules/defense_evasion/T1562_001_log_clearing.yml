@@ -1,0 +1,20 @@
+title: Security Log Clearing
+id: 772e3f2c-9fea-444e-b396-2193c7c7f64b
+status: experimental
+description: Detects security log clearing
+author: Philip Zangara
+date: 2026/06/09
+tags:
+    - attack.defense_evasion
+    - attack.t1562.001
+logsource:
+    category: security
+    product: windows
+detection:
+    selection:
+        EventID: 1102
+        LogName: Security
+    condition: selection
+falsepositives:
+    - Legitimate log clearing
+level: medium

@@ -1,0 +1,37 @@
+LogName=Microsoft-Windows-Sysmon/Operational
+EventCode=1
+EventType=4
+ComputerName=WORKSTATION-01
+User=NOT_TRANSLATED
+Sid=S-1-5-18
+SidType=0
+SourceName=Microsoft-Windows-Sysmon
+Type=Information
+RecordNumber=000001
+Keywords=None
+TaskCategory=Process Create (rule: ProcessCreate)
+OpCode=Info
+Message=Process Create:
+RuleName: -
+UtcTime: 2024-01-01 00:00:00.000
+ProcessGuid: {00000000-0000-0000-0000-000000000000}
+ProcessId: 12345
+Image: C:\AtomicRedTeam\invoke-atomicredteam\mimikatz.exe
+FileVersion: 2.2.0.0
+Description: mimikatz for Windows
+Product: mimikatz
+Company: gentilkiwi (Benjamin DELPY)
+OriginalFileName: mimikatz.exe
+CommandLine: "C:\AtomicRedTeam\invoke-atomicredteam\mimikatz.exe"
+CurrentDirectory: C:\AtomicRedTeam\invoke-atomicredteam\
+User: WORKSTATION-01\user
+LogonGuid: {00000000-0000-0000-0000-000000000000}
+LogonId: 0x00000000
+TerminalSessionId: 1
+IntegrityLevel: High
+Hashes: MD5=E930B05EFE23891D19BC354A4209BE3E,SHA256=92804FAAAB2175DC501D73E814663058C78C0A042675A8937266357BCFB96C50,IMPHASH=1355327F6CA3430B3DDBE6E0ACDA71EA
+ParentProcessGuid: {00000000-0000-0000-0000-000000000000}
+ParentProcessId: 6789
+ParentImage: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+ParentCommandLine: "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" 
+ParentUser: WORKSTATION-01\user

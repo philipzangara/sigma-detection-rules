@@ -1,0 +1,28 @@
+title: LSASS Credential Dump
+id: 0187b4ea-f568-4edd-8223-77cd868c5067
+status: experimental
+description: Detects lsass credential dumping
+author: Philip Zangara
+date: 2026/06/07
+tags:
+    - attack.credential_access
+    - attack.t1003.001
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection:
+        CommandLine|contains:
+            - 'lsass'
+    filter:
+        Image|endswith:
+            - '\mimikatz.exe'
+            - '\procdump.exe'
+            - '\procdump64.exe'
+            - '\wce.exe'
+            - '\pwdump.exe'
+            - '\lsadump.exe'
+    filter_legitimate:
+        Image|endswith: '\lsass.exe'
+        ParentImage|endswith: '\wininit.exe'
+    condition: (selection or filter) and not filter_legitimate
